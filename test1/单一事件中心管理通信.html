@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>通信</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <com-a></com-a>
+        <com-b></com-b>
+        <com-c></com-c>
+    </div>
+</body>
+</html>
+<script>
+    //准备一个空实例对象
+    // var Event = new Vue();
+    // Event.$emit('事件名称','数据')
+
+    //再mounted（）里面接收
+    // Event.$on('事件名称',function(data){
+
+    // }.bind(this))
+
+
+
+    var Event = new Vue();
+    Event
+    var A = {
+        template:`
+            <div>
+                <h1>我是A {{a}}</h1>
+                <input type="button" value="把组件A的数据给C" @click='send'>
+            </div>
+        `,
+        methods:{
+            send(){
+                Event.$emit("a-msg",this.a);
+            }
+        },
+        data(){
+            return {
+                a:'我是a数据'
+            }
+        }
+    }
+    var B = {
+        template:`
+            <div>
+                <h1>我是B {{b}}</h1>
+                <input type="button" value="把组件B的数据给C">
+            </div>
+        `,
+        data(){
+            return {
+                b:'我是b数据'
+            }
+        }
+    }
+    var C = {
+        template:`
+            <div>
+                    <h1>我是C</h1>
+                    <span>{{a}}</span>
+            </div>
+        `,
+        data(){
+            return {
+                a:'' 
+            }
+           
+        },
+        mounted(){
+            // var _this = this;
+            Event.$on('a-msg',function(b){
+                this.a = b;
+            }.bind(this));
+        }
+    }
+   window.onload = function(){
+       var vm = new Vue({
+           el:'#box',
+           components:{
+                'com-a':A,
+                'com-b':B,
+                'com-c':C
+           }
+       })
+   }
+</script>

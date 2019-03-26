@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <script src="./vue.js"></script>
+</head>
+<style>
+    .div{
+        width: 100px;
+        height:100px;
+        background: red;
+    }
+</style>
+<body>
+    <div id="box">
+        <input type="button" value="点击显示隐藏" @mousemove="show=!show">
+        <transition name='dage'>
+            <div v-show="show">
+                dasdfs
+            </div>
+        </transition>
+        
+    </div>
+</body>
+</html>
+<script>
+    window.onload = function(){
+        var vm = new Vue({
+            el:'#box',
+            data:{
+                show:true
+            }
+        })
+    };
+</script>
+<style>
+    .dage-enter-active, .dage-leave-active {
+         transition: opacity .5s;
+    }
+    .dage-enter, .dage-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+</style>
+
+
+
+
+
+<script>
+    //常见的鼠标事件
+    mouseenter      //指针移到事件监听的元素内（不冒泡）
+    mouseover       //指针移到有事件监听的元素或者它的子元素内
+    mousemove       //指针在元素内移动时持续触发
+    mousedown       //在元素上按下任意鼠标按钮
+    mouseup         //在元素上释放任意鼠标按钮
+    mouseleave      //指针移除元素范围内（不冒泡）
+    mouseout        //指针以处元素，或者移到它的子元素上
+</script>

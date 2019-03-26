@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<style>
+    @keyframes bounce-in{
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform:  scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+
+    }
+    .fade-enter{
+        /* color: red; */
+        /* opacity: 0; */
+    }
+    .fade-enter-active{
+        transform-origin: left center;
+        /* transition: opacity 3s; */
+        animation: bounce-in 1s;
+    }
+    .fade-leave-to{
+        /* opacity: 0; */
+    }
+    .fade-leave-active{
+        transform-origin: left center;
+        /* transition: opacity 3s; */
+        animation: bounce-in 1s reverse;
+    }
+</style>
+<body>
+    <div id="box">
+        <transition name='fade'>
+            <div v-if='show'>
+                hellow
+            </div>
+        </transition>
+        <button @click='handleShow'>按钮</button>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            show: true
+        },
+        methods:{
+            handleShow: function() {
+                this.show = !this.show
+            }
+        }
+    })
+</script>

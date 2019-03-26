@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id='box'>
+        <child>
+            <p>dell</p>
+        </child>
+        <!-- <child content='<h1> Lee </h1>'></child> -->
+    </div>
+</body>
+</html>
+<script>
+    Vue.component('child',{
+        // props:['content'],
+        template: `
+            <div>
+                <p>hello</p>
+                <slot></slot>
+                </div>
+        `
+    })
+    var vm = new Vue({
+        el: '#box'
+    })
+</script>
