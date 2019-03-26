@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="up">
+        <span></span>
+    </div>
+    <div class="top">
+
+    </div>
+    <div class="bottom">
+        <div class="popup">
+            <span><em></em></span>
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    .up{
+        width: 0;
+        height: 0;
+        border-width: 0 30px 30px;
+        border-style: solid;
+        border-color: transparent transparent #333;
+        margin: 40px auto;
+        position: relative;
+    }
+    .up span{
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 0 28px 28px;
+        border-style: solid;
+        border-color: transparent transparent #fc0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .top{
+        width: 200px;
+        height: 200px;
+        background: red;
+        border-width: 40px;
+        border-color: transparent green;
+    }
+    .bottom{
+        width: 200px;
+        margin: 0 auto 20px;
+        position: relative;
+    }
+    .bottom .popup{
+        width: 100px;
+        background: #fc0;
+        padding: 10px 20px;
+        color: #333;
+        border-radius: 4px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        border: 1px solid #333;
+    }
+    .bottom .popup span{
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent #333;
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        margin-left: -10px;
+    }
+    .bottom .popup em{
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent #fc0;
+        position: absolute;
+        top: 1px;
+        left: -10px;
+    }
+</style>
