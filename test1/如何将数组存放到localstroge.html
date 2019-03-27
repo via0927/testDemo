@@ -9,10 +9,38 @@
 </head>
 <body>
     <div id="app">
-
+        <input type="text" v-model="newCiyty">
+        <div>
+            <ul>
+                <li v-for="item in newCiyty" :key="item.index">{{item}}</li>
+            </ul>
+        </div>
+        <button @click="dateStroge()">点击存储</button>
+        <button @click="dateGet()">点击获取</button>
+        <button @click="dateRemove()">点击删除</button>
     </div>
 </body>
 </html>
 <script>
-
+    var vm = new Vue({
+        el:"#app",
+        data(){
+            return {
+                newDate:["上海","北京","东京"],
+                newCiyty:[],
+            }
+        },
+        methods:{
+            dateStroge(){//将数值存储到localStroge里面
+                localStorage.setItem("citys",JSON.stringify(this.newDate))
+            },
+            dateGet(){ //获取localStroge里的数据     并还原为数组
+                 this.newCiyty = JSON.parse(localStorage.getItem("citys"));
+                console.log(this.newCiyty);
+            },
+            dateRemove(){
+                this.newCiyty=localStorage.removeItem("citys")
+            }
+        }
+    })
 </script>
