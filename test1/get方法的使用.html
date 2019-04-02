@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg.name}}{{msg.age}}</p>
+        <p>{{val}}</p>
+        <button @click="changeValue">点击更换</button>
+        <button @click="changeDelete">点击删除</button>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:{
+                name:"小米",
+                age:12
+            },
+            val:''
+        },
+        methods:{
+            changeValue(){ //这事改变对象的属性值的方法，也可以获取该对象的属性
+                this.$set(this.msg,'name',"小李")
+                // this.msg.name="小红"
+            },
+            changeDelete(){
+                this.$delete(this.msg,'age');
+            }
+        }
+    })
+</script>
