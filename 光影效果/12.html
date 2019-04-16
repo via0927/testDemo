@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="div">
+        图片光影效果
+    </div> -->
+  <div class="logo_flash">
+    <a href="https://www.jinshare.cn/"><img class="" src="https://www.jinshare.cn/wp-content/uploads/2016/03/logo.png" width="255" height="75" alt=""></a>
+  </div>
+</body>
+</html>
+<style>
+ /* #div {
+            width: 400px;
+            height: 220px;
+            margin: 20px 0;
+            color: #fff; */
+            /*直接使用background缩放版本*/
+            /*每个渐变点的位置不能太小，不然会出现残缺光斑*/
+            /* no-repeat -270px 0：将光斑定位隐藏起来*/
+            /* background: -webkit-linear-gradient(-30deg, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 230px, rgba(255, 255, 255, 0.1) 260px, rgba(255, 255, 255, 0.1) 270px, rgba(255, 255, 255, 0) 300px, rgba(255, 255, 255, 0) 310px) no-repeat -270px 0, url(./bk.png) no-repeat;
+            transition: 1s;
+        } */
+
+        /* #div:hover { */
+            /*鼠标滑过实现光斑滑动，但是在多背景情况下，需要多个background-position属性值，否则会影响其他背景*/
+            /* background-position: 200px 0, 0 0;
+        } */
+        /* *, *:before, *:after { -webkit-box-sizing: inherit; -moz-box-sizing: inherit; box-sizing: inherit; } */
+        /* img{
+            width: 100%;
+            height: 100%;
+        } */
+.logo_flash{ position: relative; margin: 0 auto; transition-duration: .5s;  top: 0;left: 0;right: 0;bottom: 0;}
+.logo_flash{  overflow: hidden; height: 500px;}
+.logo_flash:hover::before{
+content:"";
+position: absolute;
+left: 0;
+top: 0;
+/* color: red; */
+/* background: red; */
+width: 2000px;
+height: 10px;
+background-color: rgba(255,255,255,.5);
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+-webkit-animation: searchLights 5s ease-in 1s infinite;
+-o-animation: searchLights 5s ease-in 1s infinite;
+animation: searchLights 5s ease-in 2s infinite;
+}
+/* @-webkit-keyframes searchLights {
+0% { left: -100px; top: 0; }
+to { left: 120px; top: 100px; }
+}
+@-o-keyframes searchLights {
+0% { left: -100px; top: 0; }
+to { left: 120px; top: 100px; }
+}
+@-moz-keyframes searchLights {
+0% { left: -100px; top: 0; }
+to { left: 120px; top: 100px; }
+} */
+@keyframes searchLights {
+0% { left: -1000px; top: 0; }
+to { left: 120px; top: 500px; }
+}
+        
+</style>
